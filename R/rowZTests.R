@@ -22,19 +22,12 @@
 #'
 #' @examples
 #'
-#' p <- 1e4+1
+#' p <- 1e3+1
 #' n <- 380
 #' mat <- matrix(rnorm(p*n, mean = 1), ncol=n)
 #' zt <- rowZTests(mat, alternative = "greater")
 #' str(zt)
 #'
-#' # compare with apply version:
-#' p <- apply(mat, 1, FUN=function(x) {
-#'    stat <- sum(x)/sqrt(length(x))
-#'    pnorm(stat, lower.tail = FALSE)
-#' })
-#' all(abs(zt$p.value - p) < 1e-10)  ## same results
-#' 
 #' # Sign flipping
 #' B <- 10
 #' eps <- replicate(B, rbinom(n, 1, 0.5)*2 - 1)  ## Rademacher

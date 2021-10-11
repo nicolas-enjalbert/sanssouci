@@ -111,6 +111,7 @@ testByRandomization <- function(X, categ, B,
                                 alternative = c("two.sided", "less", "greater"),
                                 rowTestFUN = rowWelchTests,
                                 rand.p.value = FALSE){
+    .Deprecated("row*Tests")
     alternative <- match.arg(alternative)
     ## sanity checks
     n <- ncol(X)
