@@ -50,9 +50,6 @@
 #' res <- rowWelchTests(sim$X, sim$categ)
 #' stat <- res$statistic
 #' 
-#' # categ_perm <- replicate(B, sample(sim$categ))
-#' # res_perm <- rowWelchTests(sim$X, categ_perm)
-#' 
 #' ## show test statistics
 #' pch <- 20
 #' colStat <- 1 + sim$H
@@ -63,9 +60,6 @@
 #' sim <- gaussianSamples(m, rho, n, pi0, SNR=2)
 #' res <- rowZTests(sim$X, alternative = "two.sided")
 #' 
-#' # eps <- replicate(B, rbinom(n, 1, 0.5)*2 - 1)  ## Rademacher
-#' # res_perm <- rowZTests(sim$X, eps, alternative = "two.sided")
-#'
 #' ## show test statistics
 #' pch <- 20
 #' colStat <- 1 + sim$H

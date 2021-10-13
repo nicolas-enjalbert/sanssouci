@@ -37,7 +37,6 @@ p0 <- rowWelchTests(X, null_groups)$p.value
 pivStat <- get_pivotal_stat(p0, m)
 quantile(pivStat, 0.2)
 
-
 }
 \references{
 Blanchard, G., Neuvial, P., & Roquain, E. (2020). Post hoc

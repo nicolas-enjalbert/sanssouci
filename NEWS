@@ -2,8 +2,10 @@
 Package: sansSouci
 ==================
 
-Version 0.12.3-9999 [2021-10-12]
+Version 0.12.3-9999 [2021-10-13]
 
+* Import colSort from Rfast
+* Removed all C++ source code from the package!
 * testByRandomization now deprecated (has been useless since at least Version 
   0.12.0 [2021-04-30])
 
