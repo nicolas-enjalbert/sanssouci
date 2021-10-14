@@ -87,13 +87,11 @@ calibrate <- function(p0, m, alpha,
                       family = c("Linear", "Beta", "Simes"), 
                       K = nrow(p0),
                       p = NULL, 
-                      max_steps_down = 10L,
-                      piv_stat0 = NULL) {
+                      max_steps_down = 10L) {
     step <- 0
     cal <- calibrate0(p0, m, alpha, 
                       family = family, 
-                      K = K, 
-                      piv_stat0 = piv_stat0)
+                      K = K)
     thr <- cal$thr[1]   ## (1-)FWER threshold
     R1 <- integer(0)
     if (!is.null(p)) {
@@ -111,8 +109,7 @@ calibrate <- function(p0, m, alpha,
         lambda <- cal$lambda
         cal <- calibrate(p1, m, alpha, 
                          family = family, 
-                         K = K,
-                         piv_stat0 = NULL) ## force piv stat calc
+                         K = K) ## force piv stat calc
         R1_new <- which(p < cal$thr[1])
         
         noNewRejection <- all(R1_new %in% R1)          ## convergence reached?
@@ -136,8 +133,7 @@ calibrate <- function(p0, m, alpha,
 #' @export
 calibrate0 <- function(p0, m, alpha, 
                        family = c("Linear", "Beta", "Simes"), 
-                       K = nrow(p0),
-                       piv_stat0 = NULL) {
+                       K = nrow(p0)) {
     K <- force(K)
     family <- match.arg(family)
     if (family %in% c("Linear", "Simes")) {
@@ -147,10 +143,7 @@ calibrate0 <- function(p0, m, alpha,
         t_inv <- t_inv_beta
         t_ <- t_beta
     }
-    pivStat <- piv_stat0
-    if (is.null(pivStat)) {
-        pivStat <- get_pivotal_stat(p0, m, t_inv, min(nrow(p0), K))
-    }
+    pivStat <- get_pivotal_stat(p0, m, t_inv, min(nrow(p0), K))
     lambda <- stats::quantile(pivStat, alpha, type = 1)
     thr <- t_(lambda, 1:K, m)
     res <- list(thr = thr,

@@ -4,6 +4,8 @@ Package: sansSouci
 
 Version 0.12.3-9999 [2021-10-13]
 
+* Drop 'piv_stat0' (not used)
+* Speedup: permutation p-values stored in 'output$p0' are now sorted by column
 * Import colSort from Rfast
 * Removed all C++ source code from the package!
 * testByRandomization now deprecated (has been useless since at least Version 

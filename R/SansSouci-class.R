@@ -366,6 +366,7 @@ fit.SansSouci <- function(object, alpha, B = ceiling(10/alpha),
             pivStat0 <- object$output$piv_stat
         }
     }
+    
     ttype <- sprintf("%s-sample", n_groups)
     object$parameters <- list(
         alpha = alpha,
@@ -395,6 +396,7 @@ fit.SansSouci <- function(object, alpha, B = ceiling(10/alpha),
                                   replicate(B, sample(groups)))          # permutation
             rwt0 <- rowTestFUN(Y, null_groups, alternative = alternative)
             p0 <- rwt0$p.value
+            p0 <- colSort(p0)
             if (verbose) {
                 dt <- Sys.time()-t0
                 cat("done (", format(dt), ")\n", sep="")
@@ -409,8 +411,7 @@ fit.SansSouci <- function(object, alpha, B = ceiling(10/alpha),
         calib <- calibrate(p0 = p0, m = m, alpha = alpha,
                            family = family, K = K, 
                            p = p.values, 
-                           max_steps_down = max_steps_down,
-                           piv_stat0 = pivStat0)
+                           max_steps_down = max_steps_down)
         if (verbose) {
             dt <- Sys.time()-t0
             cat("done (", format(dt), ")\n", sep="")
