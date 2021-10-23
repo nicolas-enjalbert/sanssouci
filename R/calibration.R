@@ -239,7 +239,6 @@ get_perm <- function(X, categ, B,
 #' pivStat <- get_pivotal_stat(p0, m)
 #' quantile(pivStat, 0.2)
 #' 
-#' @importFrom Rfast colSort
 #' @export
 get_pivotal_stat <- function(p0, m,
                              t_inv = t_inv_linear,
@@ -249,7 +248,8 @@ get_pivotal_stat <- function(p0, m,
     stopifnot(K <= m)
     
     ## Step 2: order each column
-    p0s <- colSort(p0)
+    p0s <- apply(p0, 2, sort)
+    # p0s <- colSort(p0)
     # p0s <- partialColSort(p0, K)
     B <- ncol(p0s)
     

@@ -16,7 +16,6 @@ Imports:
     generics,
     Matrix,
     matrixStats,
-    Rfast
 Suggests:
     cherry,
     ggplot2,
