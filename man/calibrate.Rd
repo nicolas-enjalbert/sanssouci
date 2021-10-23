@@ -12,18 +12,10 @@ calibrate(
   family = c("Linear", "Beta", "Simes"),
   K = nrow(p0),
   p = NULL,
-  max_steps_down = 10L,
-  piv_stat0 = NULL
+  max_steps_down = 10L
 )
 
-calibrate0(
-  p0,
-  m,
-  alpha,
-  family = c("Linear", "Beta", "Simes"),
-  K = nrow(p0),
-  piv_stat0 = NULL
-)
+calibrate0(p0, m, alpha, family = c("Linear", "Beta", "Simes"), K = nrow(p0))
 }
 \arguments{
 \item{p0}{A matrix with B rows. Each row is a vector of null p-values}
