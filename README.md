@@ -17,11 +17,13 @@ possibly user-defined and/or data-driven sets of hypotheses.
 
 Typical use cases include:
 
-  - **Differential gene expression studies in genomics**: see
-    [differential expression
-    vignette](https://pneuvial.github.io/sanssouci/articles/post-hoc_differential-expression.html)
-    and run [volcano plot shiny
-    app](https://shiny-iidea-sanssouci.apps.math.cnrs.fr/)
+  - **Differential gene expression (DGE) studies in genomics**:
+      - see vignettes dedicated to [microarray
+        data](https://pneuvial.github.io/sanssouci/articles/post-hoc_differential-expression.html)
+        and [RNAseq
+        data](https://pneuvial.github.io/sanssouci/articles/post-hoc_differential-expression_RNAseq.html)
+      - run [volcano plot shiny
+        app](https://shiny-iidea-sanssouci.apps.math.cnrs.fr/)
   - **fMRI studies in neuroimaging**: see [fMRI
     vignette](https://pneuvial.github.io/sanssouci/articles/post-hoc_fMRI.html).
 
@@ -119,8 +121,6 @@ You can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
+# install.packages("remotes")
 remotes::install_github("pneuvial/sanssouci")
 ```
-
-## References
