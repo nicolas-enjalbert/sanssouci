@@ -396,7 +396,7 @@ fit.SansSouci <- function(object, alpha, B = ceiling(10/alpha),
                                   replicate(B, sample(groups)))          # permutation
             rwt0 <- rowTestFUN(Y, null_groups, alternative = alternative)
             p0 <- rwt0$p.value
-            p0 <- apply(p0, 2, sort)
+            # p0 <- apply(p0, 2, sort) # should not be done so early! (could compromise SD)
             if (verbose) {
                 dt <- Sys.time()-t0
                 cat("done (", format(dt), ")\n", sep="")
