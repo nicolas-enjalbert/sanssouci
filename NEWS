@@ -2,7 +2,7 @@
 Package: sansSouci
 ==================
 
-Version 0.12.4-9999 [2021-10-31]
+Version 0.12.4-9999 [2021-11-05]
 
 * Drop 'piv_stat0' (not used)
 * Speedup: permutation p-values stored in 'output$p0' are now sorted by column
@@ -11,8 +11,9 @@ Version 0.12.4-9999 [2021-10-31]
 * testByRandomization now deprecated (has been useless since at least Version 
   0.12.0 [2021-04-30])
 
-Version 0.12.4 [2021-10-31]
+Version 0.12.4 [2021-11-05]
 
+* Update CITATION (book chapter in Handbook of Multiple Comparisons)
 * Add tests for corner cases in posthoc_bounds
 * Unskip tests for 'rowWilcoxonTests'
 * Add vignette for differential analysis of RNAseq data
