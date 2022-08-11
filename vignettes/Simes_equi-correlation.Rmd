@@ -8,7 +8,7 @@ output:
 header-includes:
   - \newcommand{\cH}{}
   - \renewcommand{\P}{\mathbb{P}}
-bibliography: sansSouci.bib
+bibliography: sanssouci.bib
 vignette: >
   %\VignetteEngine{knitr::knitr}
   %\VignetteIndexEntry{Conservativeness of the Simes inequality under positive dependence}
@@ -35,7 +35,7 @@ This inequality is due to @simes86improved. It is sharp under independence of th
 ## Estimating the size of the Simes test
 
 ```{r library}
-library("sansSouci")
+library("sanssouci")
 library("matrixStats")
 library("knitr")
 ```

@@ -1,8 +1,8 @@
 ==================
-Package: sansSouci
+Package: sanssouci
 ==================
 
-Version 0.12.4-9999 [2021-11-05]
+Version 0.12.6-9999 [2022-08-11]
 
 * Drop 'piv_stat0' (not used)
 * Speedup: permutation p-values stored in 'output$p0' are now sorted by column
@@ -10,6 +10,17 @@ Version 0.12.4-9999 [2021-11-05]
 * Removed all C++ source code from the package!
 * testByRandomization now deprecated (has been useless since at least Version 
   0.12.0 [2021-04-30])
+
+Version 0.12.6 [2022-08-11]
+
+* B=1000 permutations is now the default for calibration
+* 'zeta.HB' vectorized (#87)
+
+Version 0.12.5 [2022-02-18]
+
+* Package sansSouci renamed to sanssouci
+* Package sansSouci.data renamed to sanssouci.data
+>>>>>>> develop
 
 Version 0.12.4 [2021-11-05]
 
