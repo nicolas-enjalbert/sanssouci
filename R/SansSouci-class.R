@@ -401,6 +401,7 @@ fit.SansSouci <- function(object, alpha, B = 1e3,
                                   replicate(B, rbinom(n, 1, 0.5)*2 - 1), # sign-flipping
                                   replicate(B, sample(groups)))          # permutation
             rwt0 <- rowTestFUN(Y, null_groups, alternative = alternative)
+            gc()
             p0 <- rwt0$p.value
             # p0 <- apply(p0, 2, sort) # should not be done so early! (could compromise SD)
             if (verbose) {

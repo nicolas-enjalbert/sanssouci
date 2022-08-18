@@ -81,6 +81,14 @@ rowWelchTests <- function(X, categ,
     num <- sum2Y - divide_cols(sumY^2, nY)
     sY <- sqrt(divide_cols(num, nY - 1))
     
+    sumX <- NULL
+    sumY <- NULL
+    sum2X <- NULL
+    sum2Y <- NULL
+    num <- NULL
+    rm(sumX, sumY, sum2X, sum2Y, num)
+    gc()
+    
     suffWelchTests(mX, mY, sX, sY, nX, nY, alternative = alternative)
 }
 
@@ -166,8 +174,14 @@ suffWelchTests <- function(mx, my, sx, sy, nx, ny,
     ## names(stat) <- rep("t", length(stat))
     
     ## approximate degrees of freedom (Welch-Satterthwaite)
-    deno <- divide_cols(sse.x^2, nx-1) + divide_cols(sse.y^2, ny-1)
+    deno <- divide_cols(sse.x^2, nx-1) +
+        divide_cols(sse.y^2, ny-1)
     df <- sse2/deno
+    deno <- NULL; rm(deno)
+    sse <- NULL; rm(sse)
+    sse.x <- NULL; rm(sse.x)
+    sse.y <- NULL; rm(sse.y)
+    sse2 <- NULL; rm(sse2)
     ## names(df) <- "df"
     
     # mean difference
@@ -187,7 +201,7 @@ suffWelchTests <- function(mx, my, sx, sy, nx, ny,
                    "two.sided" = 2*(1 - pt(abs(stat), df = df)),
                    "greater" = 1 - pt(stat, df = df),
                    "less" = pt(stat, df = df))
-    
+
     list(statistic = stat,
          parameter = df,
          p.value = pval, 
@@ -286,7 +300,8 @@ suffWelchTests1 <- function(mx, my, sx, sy, nx, ny,
                    "two.sided" = 2*(1 - pt(abs(stat), df = df)),
                    "greater" = 1 - pt(stat, df = df),
                    "less" = pt(stat, df = df))
-    
+    rm(sse, sse2, sse.x, sse.y)
+    gc()
     list(statistic = stat,
          parameter = df,
          p.value = pval,
